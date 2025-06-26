@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+<style>
+    .bg{
+        background-color: palevioletred;
+        margin:10px;
+        width:300px;
+        border-radius: 20px;
+    }
+    input{
+        background-color: aliceblue;
+        width:50px;
+        height:50px;
+        border-radius: 20px;
+    }
+    .row{
+        margin:20px 0;
+    }
+</style>
+<body>
+    <div class="bg">
+        <div class="row">
+            <div class="col"> <input type="text" id="p" style="width:280px;margin-top:2px;"> </div>
+        </div>
+        <div class="row">
+            <div class="col"> <input type="button" onclick="p.value= ''" value="AC"></div>
+            <div class="col"> <input type="button" onclick="p.value= ''" value="C"></div>
+            <div class="col"> <input type="button" onclick="p.value+= '%'" value="%"></div>
+            <div class="col"> <input type="button" onclick="p.value+= '/'" value="/"></div>
+        </div>
+        <div class="row">
+            <div class="col"> <input type="button" onclick="p.value+= '7'" value="7"></div>
+            <div class="col"> <input type="button" onclick="p.value+= '8'" value="8"></div>
+            <div class="col"> <input type="button" onclick="p.value+= '9'" value="9"></div>
+            <div class="col"> <input type="button" onclick="p.value+= '*'" value="*"></div>
+        </div>
+        <div class="row">
+            <div class="col"> <input type="button" onclick="p.value+= '4'" value="4"></div>
+            <div class="col"> <input type="button" onclick="p.value+= '5'" value="5"></div>
+            <div class="col"> <input type="button" onclick="p.value+= '6'" value="6"></div>
+            <div class="col"> <input type="button" onclick="p.value+= '-'" value="-"></div>
+        </div>
+        <div class="row">
+            <div class="col"> <input type="button" onclick="p.value+= '1'" value="1"></div>
+            <div class="col"> <input type="button" onclick="p.value+= '2'" value="2"></div>
+            <div class="col"> <input type="button" onclick="p.value+= '3'" value="3"></div>
+            <div class="col"> <input type="button" onclick="p.value+= '+'" value="+"></div>
+        </div>
+        <div class="row">
+            <div class="col"> <input type="button" onclick="p.value+= '00'" value="00"></div>
+            <div class="col"> <input type="button" onclick="p.value+= '0'" value="0"></div>
+            <div class="col"> <input type="button" onclick="p.value+= '.'" value="."></div>
+            <div class="col"> <input type="button" onclick='back()' value="Back"></div>
+        </div>
+        <div class="row">
+            <div class="col"> <input type="button" onclick='equalTo()' value="="></div>
+        </div>
+    </div>
+    <script>
+        function equalTo(){
+            let ans=document.getElementById("p");
+            let b=ans.value;
+            for(i=0;i<b.length;i++){
+                if(b[i]=='+'){
+                    let c=b.split('+');
+                    let m=parseFloat(c[0]);
+                    let n=parseFloat(c[1]);
+                    ans.value=m+n;
+                }
+                if(b[i]=='-'){
+                    let c=b.split('-');
+                    let m=parseFloat(c[0]);
+                    let n=parseFloat(c[1]);
+                    ans.value=m-n;
+                }
+                if(b[i]=='*'){
+                    let c=b.split('*');
+                    let m=parseFloat(c[0]);
+                    let n=parseFloat(c[1]);
+                    ans.value=m*n;
+                }
+                if(b[i]=='/'){
+                    let c=b.split('/');
+                    let m=parseFloat(c[0]);
+                    let n=parseFloat(c[1]);
+                    ans.value=m/n;
+                }
+                if(b[i]=='%'){
+                    let c=b.split('%');
+                    let m=parseFloat(c[0]);
+                    let n=parseFloat(c[1]);
+                    ans.value=m%n;
+                }
+            }
+        }
+        function back(){
+            let ans=document.getElementById("p");
+            let b=ans.value;
+            ans.value=b.substring(0,b.length-1);
+        }
+    </script>
+</body>
+</html>

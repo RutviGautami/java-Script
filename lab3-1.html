@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let n=prompt("Enter size: ");
+        let a=[n];
+        for(i=0;i<n;i++){
+            a[i]=prompt("Enter "+(i+1)+" element");
+        }
+        max=a[0];
+        for(i=0;i<n;i++){
+            if(max<a[i]){
+                max=a[i];
+            }
+        }
+        alert(max);
+    </script>
+</body>
+</html>

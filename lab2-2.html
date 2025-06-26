@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a=parseInt(prompt("Enter number: "));
+        let b=parseInt(prompt("Enter number: "));
+        let prime=[],j=0;
+        for(n=a;n<=b;n++){
+            let count=0;
+            for(i=2;i<n;i++){
+                if(n%i==0){
+                count++;
+                break;
+                }
+            }
+            if(count==0){
+                prime[j]=n;
+                j++;
+            }
+        }
+        alert(prime);
+    </script>
+</body>
+</html>

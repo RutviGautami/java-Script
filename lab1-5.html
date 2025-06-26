@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        background-color: rgb(123, 15, 51);
+    }
+</style>
+<body>
+    <script>
+        let n=parseInt(prompt("Enter number: "));
+        let p=0;
+        for(i=n;i<0;i=Math.floor(i/10)){
+            p=i%10+p*10;
+        }
+        if(p==n){
+            alert("Is palindrome");
+        }
+        else{
+            alert("Is Not palindrome");
+        }
+    </script>
+</body>
+</html>

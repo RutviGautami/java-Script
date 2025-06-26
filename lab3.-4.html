@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Sort Implementation</title>
+</head>
+<body>
+    <script>
+        function quickSort(a, low, high) {
+            if (low < high) {
+                let pivotIndex = partition(a, low, high);
+                quickSort(a, low, pivotIndex - 1);
+                quickSort(a, pivotIndex + 1, high);
+            }
+        }
+
+        function partition(a, low, high) {
+            let pivot = a[high];
+            let i = low - 1;
+            for (let j = low; j < high; j++) {
+                if (a[j] < pivot) {
+                    i++;
+                    [a[i], a[j]] = [a[j], a[i]]; // Swap elements
+                }
+            }
+            [a[i + 1], a[high]] = [a[high], a[i + 1]]; // Swap pivot into correct position
+            return i + 1;
+        }
+
+        let n = parseInt(prompt("Enter size: "));  
+        let a = [];
+        for (let i = 0; i < n; i++) {
+            a[i] = parseInt(prompt("Enter element " + (i + 1)));
+        }
+
+        quickSort(a, 0, n - 1);
+        alert(a);
+    </script>
+</body>
+</html>
